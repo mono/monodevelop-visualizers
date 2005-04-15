@@ -1,24 +1,24 @@
-AC_INIT(README)
-AC_CANONICAL_SYSTEM
-AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(monodevelop-visualizers, 1.0.0)
+AC_INIT([monodevelop-visualizers], 0.1, [monodevelop-list@lists.ximian.com])
+AC_PREREQ(2.53)
+AM_INIT_AUTOMAKE([1.9 tar-ustar])
 AM_MAINTAINER_MODE
-
-AC_PROG_INSTALL
 
 AC_PATH_PROG(CSC, mcs, no)
 
 GTK_SHARP_REQUIRED_VERSION=1.9.3
 GECKO_SHARP_REQUIRED_VERSION=-0.7
 
-PKG_CHECK_MODULES (GLADE_SHARP, glade-sharp-2.0 >= $GTK_SHARP_REQUIRED_VERSION, enable_glade_sharp=yes, enable_glade_sharp=no)
-PKG_CHECK_MODULES (GECKO_SHARP, gecko-sharp-2.0 >= $GECKO_SHARP_REQUIRED_VERSION, enable_gecko_sharp=yes, enable_gecko_sharp=no)
+PKG_CHECK_MODULES(GLADE_SHARP, glade-sharp-2.0 >= $GTK_SHARP_REQUIRED_VERSION, enable_glade_sharp=yes, enable_glade_sharp=no)
+AC_SUBST(GLADE_SHARP_LIBS)
+
+PKG_CHECK_MODULES(GECKO_SHARP, gecko-sharp-2.0 >= $GECKO_SHARP_REQUIRED_VERSION, enable_gecko_sharp=yes, enable_gecko_sharp=no)
+AC_SUBST(GECKO_SHARP_LIBS)
 
 if test x$enable_glade_sharp = xno; then
-   AC_MSG_ERROR ([You must have gtk-sharp installed to use the MonoDevelop Debugger Visualizers])
+   AC_MSG_ERROR([You must have gtk-sharp installed to use the MonoDevelop Debugger Visualizers])
 fi
 
-AM_CONDITIONAL (ENABLE_GECKO_VISUALIZERS, test "$enable_gecko_sharp" = "xyes")
+AM_CONDITIONAL(ENABLE_GECKO_VISUALIZERS, test "$enable_gecko_sharp" = "xyes")
 
 AC_OUTPUT([
 Makefile
