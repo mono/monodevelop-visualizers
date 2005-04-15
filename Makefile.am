@@ -5,9 +5,9 @@ GECKO_CSFILES=gecko/HTMLVisualizer.cs \
 
 GECKO_FLAGS= -define:ENABLE_GECKO_VISUALIZERS
 
-GLADE_FILES=gecko/geckovis.glade
+GECKO_GLADE_FILES=gecko/geckovis.glade
 
-RESOURCES= /resource:./gecko/geckovis.glade,geckovis.glade
+GECKO_RESOURCES= /resource:./gecko/geckovis.glade,geckovis.glade
 endif
 
 CSFILES=AssemblyInfo.cs \
@@ -15,6 +15,9 @@ CSFILES=AssemblyInfo.cs \
 	corlib/StringVisualizer.cs \
 	gtk/PixbufVisualizer.cs \
 	$(GECKO_CSFILES)
+
+GLADE_FILES=gtk/pixbufvis.glade $(GECKO_GLADE_FILES)
+RESOURCES= /resource:./gtk/pixbufvis.glade,pixbufvis.glade $(GECKO_RESOURCES)
 
 CSFLAGS=-g $(GECKO_FLAGS)
 

@@ -2,7 +2,7 @@ using System.Diagnostics;
 using MonoDevelop.DebuggerVisualizers;
 
 [assembly: DebuggerVisualizer (typeof (GtkVisualizers.PixbufVisualizer),
-			       typeof (VisualizerObjectSource),
+			       typeof (GtkVisualizers.PixbufObjectSource),
 			       Target = typeof (Gdk.Pixbuf),
 			       Description = "View Pixbuf")]
 [assembly: DebuggerVisualizer (typeof (CorlibVisualizers.StringVisualizer),

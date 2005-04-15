@@ -1,0 +1,14 @@
+2005-04-15  Chris Toshok  <toshok@ximian.com>
+
+	* Makefile.am: add support for gtk glade files and resources.
+
+	* DebugAttributes.cs: change the pixbuf object source to
+	GtkVisualizers.PixbufObjectSource from VisualizerObjectSource.
+
+	* gtk/PixbufVisualizer.cs (PixbufWindow): new class to wrap the
+	glade UI.
+	(PixbufVisualizer): read the data as written by our custom
+	objectsource.
+	(PixbufObjectSource): new class, since Pixbufs aren't
+	serializable, we have to write the data ourselves.
+

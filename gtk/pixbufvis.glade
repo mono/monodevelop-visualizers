@@ -3,15 +3,14 @@
 
 <glade-interface>
 
-<widget class="GtkDialog" id="gecko_dialog">
-  <property name="border_width">12</property>
+<widget class="GtkDialog" id="pixbuf_dialog">
   <property name="visible">True</property>
-  <property name="title" translatable="yes">gecko_dialog</property>
+  <property name="title" translatable="yes">dialog1</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_NONE</property>
   <property name="modal">True</property>
-  <property name="default_width">200</property>
-  <property name="default_height">300</property>
+  <property name="default_width">300</property>
+  <property name="default_height">400</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
   <property name="decorated">True</property>
@@ -55,12 +54,30 @@
       </child>
 
       <child>
-	<widget class="Custom" id="gecko_control">
+	<widget class="GtkScrolledWindow" id="scrolledwindow1">
 	  <property name="visible">True</property>
-	  <property name="creation_function">CreateGeckoControl</property>
-	  <property name="int1">0</property>
-	  <property name="int2">0</property>
-	  <property name="last_modification_time">Fri, 15 Apr 2005 01:01:08 GMT</property>
+	  <property name="can_focus">True</property>
+	  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="shadow_type">GTK_SHADOW_IN</property>
+	  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+	  <child>
+	    <widget class="GtkViewport" id="viewport1">
+	      <property name="visible">True</property>
+	      <property name="shadow_type">GTK_SHADOW_IN</property>
+
+	      <child>
+		<widget class="GtkImage" id="pixbuf_image">
+		  <property name="visible">True</property>
+		  <property name="xalign">0.5</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		</widget>
+	      </child>
+	    </widget>
+	  </child>
 	</widget>
 	<packing>
 	  <property name="padding">0</property>

@@ -43,7 +43,6 @@ namespace GeckoVisualizers
     public Widget CustomWidgetHandler (XML xml, string func_name, string name, string string1, string string2, int int1, int int2)
     {
       if (func_name.Equals ("CreateGeckoControl")) {
-	Console.WriteLine ("CreateGeckoControl");
 	return new Gecko.WebControl ();
       }
 
