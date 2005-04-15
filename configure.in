@@ -1,0 +1,25 @@
+AC_INIT(README)
+AC_CANONICAL_SYSTEM
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(monodevelop-visualizers, 1.0.0)
+AM_MAINTAINER_MODE
+
+AC_PROG_INSTALL
+
+AC_PATH_PROG(CSC, mcs, no)
+
+GTK_SHARP_REQUIRED_VERSION=1.9.3
+GECKO_SHARP_REQUIRED_VERSION=-0.7
+
+PKG_CHECK_MODULES (GLADE_SHARP, glade-sharp-2.0 >= $GTK_SHARP_REQUIRED_VERSION, enable_glade_sharp=yes, enable_glade_sharp=no)
+PKG_CHECK_MODULES (GECKO_SHARP, gecko-sharp-2.0 >= $GECKO_SHARP_REQUIRED_VERSION, enable_gecko_sharp=yes, enable_gecko_sharp=no)
+
+if test x$enable_glade_sharp = xno; then
+   AC_MSG_ERROR ([You must have gtk-sharp installed to use the MonoDevelop Debugger Visualizers])
+fi
+
+AM_CONDITIONAL (ENABLE_GECKO_VISUALIZERS, test "$enable_gecko_sharp" = "xyes")
+
+AC_OUTPUT([
+Makefile
+])
