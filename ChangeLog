@@ -1,5 +1,17 @@
 2005-04-15  Chris Toshok  <toshok@ximian.com>
 
+	* Makefile.am (GLADE_FILES): add stringvis.glade
+	(RESOURCES): same.
+
+	* corlib/stringvis.glade: new file, the string visualizer dialog.
+
+	* corlib/StringVisualizer.cs (StringWindow): display a glade ui
+	containing a textview showing the string.  Paves the way for an
+	editable UI once ReplaceObject is implemented.
+	(StringVisualizer.Show): use StringWindow.
+
+2005-04-15  Chris Toshok  <toshok@ximian.com>
+
 	* Makefile.am: add support for gtk glade files and resources.
 
 	* DebugAttributes.cs: change the pixbuf object source to

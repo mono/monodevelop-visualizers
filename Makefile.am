@@ -16,8 +16,8 @@ CSFILES=AssemblyInfo.cs \
 	gtk/PixbufVisualizer.cs \
 	$(GECKO_CSFILES)
 
-GLADE_FILES=gtk/pixbufvis.glade $(GECKO_GLADE_FILES)
-RESOURCES= /resource:./gtk/pixbufvis.glade,pixbufvis.glade $(GECKO_RESOURCES)
+GLADE_FILES=corlib/stringvis.glade gtk/pixbufvis.glade $(GECKO_GLADE_FILES)
+RESOURCES= /resource:./corlib/stringvis.glade,stringvis.glade /resource:./gtk/pixbufvis.glade,pixbufvis.glade $(GECKO_RESOURCES)
 
 CSFLAGS=-g $(GECKO_FLAGS)
 
